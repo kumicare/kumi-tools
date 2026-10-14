@@ -1,0 +1,32 @@
+diff --git a/plugins/platforms/line/adapter.py b/plugins/platforms/line/adapter.py
+--- a/plugins/platforms/line/adapter.py
++++ b/plugins/platforms/line/adapter.py
+@@ -1064,6 +1064,7 @@ class LineAdapter(BasePlatformAdapter):
+             user_id=user_id,
+             user_name=user_id,
+             chat_name=chat_id,
++            message_id=message_id,
+         )
+ 
+         event_obj = MessageEvent(
+diff --git a/tests/gateway/test_line_plugin.py b/tests/gateway/test_line_plugin.py
+--- a/tests/gateway/test_line_plugin.py
++++ b/tests/gateway/test_line_plugin.py
+@@ -210,6 +210,17 @@ class TestInboundMedia:
+         assert event.media_urls == ["/cache/image.jpg"]
+         assert event.media_types == ["image/jpeg"]
+ 
++    def test_text_message_propagates_id_into_trusted_source(self, adapter, monkeypatch):
++        monkeypatch.setenv("LINE_GROUP_KEYWORD", "@kumi")
++
++        asyncio.run(adapter._handle_message_event(
++            self._event("text", text="@kumi list my tasks")
++        ))
++
++        event = self._captured_event(adapter)
++        assert event.message_id == "text-1"
++        assert event.source.message_id == "text-1"
++
+ 
+ # ---------------------------------------------------------------------------
+ # 8. Send routing (reply -> push fallback, batching, system-bypass)

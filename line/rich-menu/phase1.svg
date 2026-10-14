@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="843" viewBox="0 0 2500 843">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F4EA"/>
+      <stop offset="1" stop-color="#EEF5F1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#123D34" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .title { font: 800 82px 'PingFang TC', 'Noto Sans TC', sans-serif; fill: #123D34; letter-spacing: 1px; }
+      .icon { fill: none; stroke: #277866; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+      .tile { fill: #FFFFFF; stroke: #DDE9E4; stroke-width: 3; }
+      .tile-accent { fill: #DFF1E9; stroke: #BBDCCE; stroke-width: 3; }
+    </style>
+  </defs>
+  <rect width="2500" height="843" fill="url(#bg)"/>
+
+  <g filter="url(#shadow)">
+    <rect class="tile-accent" x="24" y="22" width="785" height="377" rx="34"/>
+    <rect class="tile" x="857" y="22" width="786" height="377" rx="34"/>
+    <rect class="tile" x="1691" y="22" width="785" height="377" rx="34"/>
+    <rect class="tile" x="24" y="443" width="785" height="377" rx="34"/>
+    <rect class="tile" x="857" y="443" width="786" height="377" rx="34"/>
+    <rect class="tile" x="1691" y="443" width="785" height="377" rx="34"/>
+  </g>
+
+  <!-- Add task -->
+  <g transform="translate(300 90)">
+    <rect class="icon" x="0" y="0" width="150" height="150" rx="30"/>
+    <path class="icon" d="M75 38v74M38 75h74"/>
+  </g>
+  <text class="title" x="416" y="335" text-anchor="middle">新增任務</text>
+
+  <!-- My tasks -->
+  <g transform="translate(1175 92)">
+    <circle class="icon" cx="75" cy="54" r="40"/>
+    <path class="icon" d="M13 155c10-43 34-64 62-64s52 21 62 64"/>
+    <path class="icon" d="M116 112l22 22 42-48"/>
+  </g>
+  <text class="title" x="1250" y="335" text-anchor="middle">我的任務</text>
+
+  <!-- Family tasks -->
+  <g transform="translate(2011 88)">
+    <path class="icon" d="M0 76L72 14l72 62v80H0z"/>
+    <path class="icon" d="M51 156v-52h42v52"/>
+    <path class="icon" d="M24 70h96"/>
+  </g>
+  <text class="title" x="2083" y="335" text-anchor="middle">家庭任務</text>
+
+  <!-- Claim -->
+  <g transform="translate(334 506)">
+    <path class="icon" d="M5 86h76c28 0 50 20 50 46v18H45c-28 0-50-18-50-44V86z"/>
+    <path class="icon" d="M57 86V30M29 55l28-28 28 28"/>
+  </g>
+  <text class="title" x="416" y="756" text-anchor="middle">認領任務</text>
+
+  <!-- Complete -->
+  <g transform="translate(1178 510)">
+    <circle class="icon" cx="72" cy="72" r="68"/>
+    <path class="icon" d="M36 74l25 25 49-55"/>
+  </g>
+  <text class="title" x="1250" y="756" text-anchor="middle">完成任務</text>
+
+  <!-- Help -->
+  <g transform="translate(2012 510)">
+    <circle class="icon" cx="71" cy="71" r="68"/>
+    <path class="icon" d="M45 51c4-22 20-34 39-31 20 3 32 18 29 36-3 17-14 23-27 31-8 5-12 12-12 22"/>
+    <circle cx="74" cy="132" r="8" fill="#277866"/>
+  </g>
+  <text class="title" x="2083" y="756" text-anchor="middle">使用說明</text>
+</svg>

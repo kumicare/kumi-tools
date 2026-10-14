@@ -1,0 +1,35 @@
+{
+  "size": {
+    "width": 2500,
+    "height": 843
+  },
+  "selected": true,
+  "name": "Kumi Family Tasks Phase 1.2 (group-ready)",
+  "chatBarText": "Kumi 家庭任務",
+  "areas": [
+    {
+      "bounds": {"x": 0, "y": 0, "width": 833, "height": 421},
+      "action": {"type": "message", "label": "新增任務", "text": "@kumi 新增家庭任務"}
+    },
+    {
+      "bounds": {"x": 833, "y": 0, "width": 834, "height": 421},
+      "action": {"type": "message", "label": "我的任務", "text": "@kumi 列出我的待辦"}
+    },
+    {
+      "bounds": {"x": 1667, "y": 0, "width": 833, "height": 421},
+      "action": {"type": "message", "label": "家庭任務", "text": "@kumi 列出家庭共同待辦"}
+    },
+    {
+      "bounds": {"x": 0, "y": 421, "width": 833, "height": 422},
+      "action": {"type": "message", "label": "認領任務", "text": "@kumi 我要認領一項家庭任務"}
+    },
+    {
+      "bounds": {"x": 833, "y": 421, "width": 834, "height": 422},
+      "action": {"type": "message", "label": "完成任務", "text": "@kumi 我要完成一項家庭任務"}
+    },
+    {
+      "bounds": {"x": 1667, "y": 421, "width": 833, "height": 422},
+      "action": {"type": "message", "label": "使用說明", "text": "@kumi 說明家庭任務功能"}
+    }
+  ]
+}

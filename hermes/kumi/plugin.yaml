@@ -1,0 +1,20 @@
+name: kumi
+version: 0.2.0
+description: "Controlled Kumi family task and Google Workspace tools."
+author: Kumi
+kind: standalone
+requires_env:
+  - KUMI_SUPABASE_URL
+  - KUMI_SUPABASE_PUBLISHABLE_KEY
+  - KUMI_SUPABASE_EMAIL
+  - KUMI_SUPABASE_PASSWORD
+provides_tools:
+  - list_family_members
+  - create_family_task
+  - list_family_tasks
+  - assign_family_task
+  - claim_family_task
+  - complete_family_task
+  - read_family_sheet
+  - list_family_calendar_events
+  - create_family_calendar_event

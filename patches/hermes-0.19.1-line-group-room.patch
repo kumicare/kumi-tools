@@ -1,0 +1,50 @@
+diff --git a/plugins/platforms/line/adapter.py b/plugins/platforms/line/adapter.py
+index cf14782..abf85ad 100644
+--- a/plugins/platforms/line/adapter.py
++++ b/plugins/platforms/line/adapter.py
+@@ -1020,6 +1020,45 @@ class LineAdapter(BasePlatformAdapter):
+         else:
+             text = f"[unsupported message type: {msg_type}]"
+ 
++        # In group chats and multi-user rooms, only respond when the
++        # configured wake word appears in a text message.
++        if chat_type in ("group", "room"):
++            wake_word = os.getenv("LINE_GROUP_KEYWORD", "@kumi").strip()
++
++            # Ignore non-text group messages, such as stickers or images,
++            # unless mention handling is implemented separately.
++            if msg_type != "text":
++                logger.info(
++                    "LINE: ignoring non-text %s message in %s without wake word handling",
++                    msg_type,
++                    chat_type,
++                )
++                return
++
++            # Ignore ordinary group messages that do not call the bot.
++            if wake_word and wake_word.casefold() not in text.casefold():
++                logger.info(
++                    "LINE: ignoring %s message without wake word %r",
++                    chat_type,
++                    wake_word,
++                )
++                return
++
++            # Remove the first wake word before sending the request to Hermes.
++            if wake_word:
++                match = re.search(re.escape(wake_word), text, flags=re.IGNORECASE)
++                if match:
++                    text = (
++                        text[:match.start()] + text[match.end():]
++                    ).strip()
++
++            # Do not invoke Hermes when the message only contains "@kumi".
++            if not text:
++                logger.info(
++                    "LINE: wake word received without a request; ignoring"
++                )
++                return
++
+         # Best-effort typing indicator (DM only).
+         if chat_type == "dm" and self._client:
+             asyncio.create_task(self._client.loading(chat_id))
